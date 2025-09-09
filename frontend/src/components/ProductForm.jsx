@@ -31,25 +31,26 @@ const ProductForm = ({ onSubmit, editProduct, onCancelEdit }) => {
 
   return (
     <div className="form-container">
-    <form className="form" onSubmit={handleSubmit}>
-      {error && <p className="error">{error}</p>}
-      <input name="name" placeholder="Product Name" value={form.name} onChange={handleChange} />
-      <input name="price" type="number" placeholder="Price" value={form.price} onChange={handleChange} />
-      <input name="category" placeholder="Category" value={form.category} onChange={handleChange} />
-      <textarea name="description" placeholder="Description" value={form.description} onChange={handleChange}></textarea>
+      <form className="form" onSubmit={handleSubmit}>
+        {error && <p className="error">{error}</p>}
 
-      <div className="form-buttons">
-        <button type="submit" className="btn add">
-          {editProduct ? "Update Product" : "Add Product"}
-        </button>
+        <input className="input" name="name" placeholder="Product Name" value={form.name} onChange={handleChange} />
+        <input className="input" name="price" type="number" placeholder="Price" value={form.price} onChange={handleChange} />
+        <input className="input" name="category" placeholder="Category" value={form.category} onChange={handleChange} />
+        <textarea className="textarea" name="description" placeholder="Description" value={form.description} onChange={handleChange}></textarea>
 
-        {editProduct && (
-          <button type="button" className="btn cancel" onClick={onCancelEdit}>
-            Cancel
+        <div className="form-buttons">
+          <button type="submit" className="btn primary">
+            {editProduct ? "Update Product" : "Add Product"}
           </button>
-        )}
-      </div>
-    </form>
+
+          {editProduct && (
+            <button type="button" className="btn secondary" onClick={onCancelEdit}>
+              Cancel
+            </button>
+          )}
+        </div>
+      </form>
     </div>
   );
 };
