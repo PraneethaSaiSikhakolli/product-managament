@@ -1,0 +1,231 @@
+/* applied to entire page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f8f9fa;
+}
+* {
+  box-sizing: border-box;  /*avoids overflowing */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       
+  padding: 20px 15px;
+}
+
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin-bottom:40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap:14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  background: #ffffff;
+  max-width: 900px;
+  width: 100%;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(39, 39, 39, 0.05);
+}
+
+.form:hover {
+  transform: translateY(-3px);
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color:black;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0);
+}
+
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.form button {
+  background: rgb(32, 32, 32);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.form button:hover {
+  background: grey;
+}
+
+.btn.cancel {
+  background: #dc3546e7;
+}
+
+.btn.cancel:hover {
+  background: #b02a37;
+}
+
+.card {
+  border: 1px solid #e5e5e5; 
+  border-radius: 12px;
+  padding: 20px;
+  background: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111; 
+}
+
+.card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #555; 
+}
+
+.card button {
+  padding: 8px 14px;
+  margin-right: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  color: #111;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card button:hover {
+  background: #eaeaea;
+}
+
+.card button:first-of-type {
+  border-color: black;
+  color:grey;
+  background: #f0f8ff;
+}
+
+.card button:first-of-type:hover {
+  background: #e5f2ff;
+}
+
+.card button:last-of-type {
+  border-color: #d32f2f;
+  color: #d32f2f;
+  background: #fff5f5;
+}
+
+.card button:last-of-type:hover {
+  background: #ffe0e0;
+}
+
+
+.form-wrapper h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 10px;
+}
+
+
+.search-sort {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-sort input,
+.search-sort select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.search-sort input:focus,
+.search-sort select:focus {
+  outline: none;
+  border-color: black;
+  box-shadow: 0 0 5px rgba(47, 47, 48, 0.3);
+}
+
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f8f9fa;
+  font-family: sans-serif;
+  opacity: 0;
+  animation: fadeInOut 5s ease-in-out forwards;
+}
+
+.splash-screen h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.splash-screen p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
