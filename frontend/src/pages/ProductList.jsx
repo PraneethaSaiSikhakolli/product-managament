@@ -3,6 +3,8 @@ import ProductCard from "../components/ProductCard";
 import ProductForm from "../components/ProductForm";
 import "../App.css";
 
+const API_URL = "https://product-managament-eidf.onrender.com/api/products";
+
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [editProduct, setEditProduct] = useState(null);
@@ -12,21 +14,21 @@ const ProductList = () => {
 
   // Fetch products
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch(API_URL)
       .then((res) => res.json())
       .then(setProducts);
   }, []);
 
   const handleSubmit = async (form) => {
     if (editProduct) {
-      await fetch(`http://localhost:5000/api/products/${editProduct._id}`, {
+      await fetch(`${API_URL}/${editProduct._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
       alert("✅ Product updated!");
     } else {
-      await fetch("http://localhost:5000/api/products", {
+      await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -36,7 +38,7 @@ const ProductList = () => {
 
     setEditProduct(null);
     setShowModal(false);
-    const res = await fetch("http://localhost:5000/api/products");
+    const res = await fetch(API_URL);
     setProducts(await res.json());
   };
 
@@ -51,7 +53,7 @@ const ProductList = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
-    await fetch(`http://localhost:5000/api/products/${id}`, { method: "DELETE" });
+    await fetch(`${API_URL}/${id}`, { method: "DELETE" });
     setProducts(products.filter((p) => p._id !== id));
     alert("🗑️ Product deleted!");
   };
@@ -96,23 +98,24 @@ const ProductList = () => {
 
       {showModal && (
         <div className="modal-backdrop" onClick={() => setShowModal(false)}>
-            <div className="modal" onClick={(e) => e.stopPropagation()}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-                <h2>{editProduct ? "Edit Product" : "Add Product"}</h2>
-                <button className="close-btn" onClick={() => setShowModal(false)}>×</button>
+              <h2>{editProduct ? "Edit Product" : "Add Product"}</h2>
+              <button className="close-btn" onClick={() => setShowModal(false)}>
+                ×
+              </button>
             </div>
             <ProductForm
-                onSubmit={handleSubmit}
-                editProduct={editProduct}
-                onCancelEdit={() => {
+              onSubmit={handleSubmit}
+              editProduct={editProduct}
+              onCancelEdit={() => {
                 setEditProduct(null);
                 setShowModal(false);
-                }}
+              }}
             />
-            </div>
+          </div>
         </div>
-        )}
-
+      )}
     </div>
   );
 };
