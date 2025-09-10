@@ -42,31 +42,6 @@ It supports basic CRUD operations like adding, viewing, editing, deleting,search
 
 ---
 
-## 📂 Project Structure
-.
-├── backend/                     # Express + MongoDB backend
-│   ├── src/
-│   │   ├── config/              # DB connection setup
-│   │   ├── models/              # Product schema
-│   │   ├── routes/              # API routes
-│   │   ├── controllers/         # Controller logic
-│   │   ├── app.js               # Express app config
-│   │   └── server.js            # Server entry point
-│   └── package.json
-│
-├── frontend/                    # React frontend
-│   ├── src/
-│   │   ├── components/          # Reusable components (ProductCard, ProductForm)
-│   │   ├── pages/               # Product List page
-│   │   ├── App.css              # Basic styling
-│   │   ├── App.jsx              # Root React component
-│   │   └── main.jsx             # App entry
-│   ├── index.html
-│   └── package.json
-│
-└── README.md
-
----
 
 ## ⚡ API Endpoints
 Base URL: `https://product-managament-eidf.onrender.com`
