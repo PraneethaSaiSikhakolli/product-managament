@@ -6,9 +6,7 @@ It supports basic CRUD operations like adding, viewing, editing, deleting,search
 ---
 
 ## 🚀 Live Demo
-- **Frontend (ReactJS)**: [Product Management App](https://product-managament-kappa.vercel.app/)  
-- **Backend (Express + MongoDB Atlas)**: [Render API](https://product-managament-eidf.onrender.com/api/products)
-
+- [Product Management App](https://product-managament-kappa.vercel.app/)  
 ---
 
 ## 📌 Features
